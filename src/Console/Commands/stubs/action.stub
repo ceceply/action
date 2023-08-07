@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+{{ imports }}
+class {{ class }} {{ interface }}
+{
+	public function {{ action }}({{ parameters }})
+	{
+		// TODO: {{ action }}
+	}
+}
