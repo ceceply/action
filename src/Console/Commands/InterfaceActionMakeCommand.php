@@ -40,7 +40,7 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 	 */
 	protected function getStub(): string
 	{
-		return __DIR__ . '/stubs/action.interface.stub';
+		return __DIR__ . '/../../../stubs/action.interface.stub';
 	}
 
 	/**
