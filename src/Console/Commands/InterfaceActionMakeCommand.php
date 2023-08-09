@@ -15,7 +15,7 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 	 */
 	protected $signature = 'make:iaction
 							{name : The interface name of the action}
-							{--a|action= : The action name}
+							{--a|action= : Custom action name}
 							{--m|model= : The model to be processed}
 							{--g|guess-model : Guess model by the last action class name word}
 							{--f|force : Create the interface even if the interface already exists}';
