@@ -17,6 +17,7 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 							{name : The interface name of the action}
 							{--a|action= : The action name}
 							{--m|model= : The model to be processed}
+							{--g|guess-model : Guess model by the last action class name word}
 							{--f|force : Create the interface even if the interface already exists}';
 
 	/**
@@ -99,7 +100,7 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 	{
 		$imports = [];
 
-		if ($model = $this->getModelInput()) {
+		if ($model = $this->getModel()) {
 			$imports[] = 'use ' . $this->qualifyModel($model) . ';';
 		}
 
@@ -170,7 +171,7 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 	{
 		$params = [];
 
-		if ($model = $this->getModelInput()) {
+		if ($model = $this->getModel()) {
 			$model = last(explode('\\', $model));
 			$params[] = $model . ' $' . strtolower($model);
 		}
@@ -180,6 +181,22 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 		}
 
 		return $params;
+	}
+
+	/**
+	 * Get model from input or guessing.
+	 *
+	 * @return string|null
+	 */
+	protected function getModel(): string|null
+	{
+		$model = trim($this->getModelInput());
+
+		if (! $model && $this->guessModel()) {
+			$model = Str::singular(last(Str::ucsplit($this->getNameInput())));
+		}
+
+		return $model ? $this->qualifyModel($model) : null;
 	}
 
 	/**
@@ -200,5 +217,15 @@ class InterfaceActionMakeCommand extends GeneratorCommand
 	protected function getModelInput(): string
 	{
 		return trim($this->option('model'));
+	}
+
+	/**
+	 * Confirm to guess model.
+	 *
+	 * @return bool
+	 */
+	protected function guessModel(): bool
+	{
+		return $this->option('guess-model');
 	}
 }

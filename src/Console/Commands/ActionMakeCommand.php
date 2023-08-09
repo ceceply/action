@@ -19,6 +19,7 @@ class ActionMakeCommand extends InterfaceActionMakeCommand
 							{--w|without-interface : Make action class without implementing an action interface}
 							{--a|action= : Custom action name}
 							{--m|model= : The model to be processed}
+							{--g|guess-model : Guess model by the last action class name word}
 							{--f|force : Create the class even if the class already exists}
 							{--F|force-interface : Create the interface even if the interface already exists}';
 
@@ -53,6 +54,7 @@ class ActionMakeCommand extends InterfaceActionMakeCommand
 				'name' => $this->getInterfaceName(),
 				'--action' => $this->getAction(),
 				'--model' => $this->getModelInput(),
+				'--guess-model' => $this->guessModel(),
 				'--force' => $this->forceCreateInterface(),
 			]);
 		}
