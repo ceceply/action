@@ -21,7 +21,7 @@ class ActionMakeCommand extends InterfaceActionMakeCommand
 							{--m|model= : The model to be processed}
 							{--g|guess-model : Guess model by the last action class name word}
 							{--f|force : Create the class even if the class already exists}
-							{--F|force-both : Create the interface and the class even if the interface already exists}';
+							{--F|force-both : Create the interface and the class even if the class and the interface already exists}';
 
 	/**
 	 * The console command description.
