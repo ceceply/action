@@ -1,18 +1,20 @@
 {
 	"name": "ceceply/action",
-	"description": "Laravel action maker",
-	"type": "library",
+	"description": "Laravel action generator",
+	"keywords": ["laravel", "action"],
 	"license": "MIT",
+	"authors": [
+		{
+			"name": "Adi Aryasuta",
+			"email": "adiaryasuta.dev@gmail.com",
+			"homepage": "https://adiaryasuta.vercel.app"
+		}
+	],
 	"autoload": {
 		"psr-4": {
 			"Ceceply\\Action\\": "src/"
 		}
 	},
-	"authors": [
-		{
-			"name": "Adi Aryasuta",
-			"email": "adiaryasuta.dev@gmail.com"
-		}
-	],
-	"require": {}
+	"minimum-stability": "stable",
+	"prefer-stable": true
 }
