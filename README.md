@@ -10,7 +10,7 @@ Installation
 Require using [Composer](https://getcomposer.org).
 
 ```bash
-composer require ceceply/action
+composer require ceceply/action --dev
 ```
 
 Put `Ceceply\Action\Providers\ActionServiceProvider::class` into list of service providers in `config/app.php`.
